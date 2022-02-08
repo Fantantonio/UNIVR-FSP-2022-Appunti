@@ -1,0 +1,102 @@
+\section{Cyber Kill Chain}
+\label{sec:cyberkillchain}
+La cyber kill chain è la catena di controllo del sistema che permette di capire se si è sotto attacco e di che tipo di attacco.\\
+Si divide in fasi:
+\begin{itemize}[noitemsep]
+    \item Reconnaissance
+    \item Weaponization
+    \item Delivery
+    \item Exploitation
+    \item Installation
+    \item Command and Control
+    \item Actions on Objectives
+\end{itemize}
+
+
+\subsection{Reconnaissance}
+Obiettivo: selezionare ed ottenere informazioni sull'individuo vittima (cliente dell'azienda oppure dell'IT...)
+Fase passiva: ottenere informazioni senza interagire con la vittima (whois, shodan, google, social media, mantego)
+Fase attiva: ottenere informazioni attraverso l'interazione con la vittima (nmap, port scanning, vulnerability scanners)
+
+\subsection{Weaponization}
+Obiettivo: trovare o creare l'attacco per sfruttare la vulnerabilità attraverso l'utilizzo di
+\begin{itemize}[noitemsep]
+    \item Metasploit
+    \item Exploit DB
+    \item Veil Framework
+    \item Social Engineering Toolkit
+    \item Cain and Abel
+    \item Aircrack
+    \item SQL Map
+    \item Malware ad hoc
+\end{itemize}
+
+
+\subsection{Delivery}
+Obiettivo: scegliere come inviare l'attacco
+\begin{itemize}[noitemsep]
+    \item Web site: compromettendo siti web molto utilizzati in modo che la visita inneschi il download del file malevolo
+    \item Social Media: utilizzando profili fake per attacchi di ingegneria sociale
+    \item User Input: avendo accesso a tastiere ecc... della vittima
+    \item Email: inviando il file malevolo per email
+    \item USB: lasciando pendrive incustodite
+\end{itemize}
+
+
+\subsection{Exploitation}
+Obiettivo: sfruttare una vulnerabilità già nota come ad esempio:
+\begin{itemize}[noitemsep]
+    \item SQL Injection
+    \item Buffer overflow su software già presente nella macchina
+    \item Malware
+    \item Javascript hijacking cioè redirect attraverso js
+    \item User exploitation
+\end{itemize}
+
+
+\subsection{Installation}
+Obiettivo: mantenere l'accesso nel sistema vittima attraverso l'utilizzo delle seguenti tecniche
+\begin{itemize}[noitemsep]
+    \item DLL Hijacking cioè cambiare la libreria legittima di un programma con quella malevola che avvia il malware all'avvio del programma legittimo
+    \item Meterpreter
+    \item Remote Access Trojan
+    \item Registry Changes cioè la modifica dello scheduling d'avvio in modo da avviare il malware in automatico all'accensione della macchina.
+    \item PowerShell commands
+\end{itemize}
+
+
+\subsection{\acrfull{C2}}
+Obiettivo: stabilire un canale di comunicazione tra attaccante e macchina vittima in modo da manipolare la stessa da remoto ad esempio aprendo canali di comunicazione a due vie attraverso \acrshort{HTTP}/\acrshort{HTTPS} o cloud, agendo su DNS e protocolli email e collegandosi direttamente a server di controllo in possesso degli attaccanti oppure ad altre macchine vittima utilizzate per questo scopo
+
+
+\subsection{Actions on Objectives}
+Obiettivo: azioni intraprese per conseguire l'obiettivo dell'attacco tra cui
+\begin{itemize}[noitemsep]
+    \item Ottenere i dati dell'utente
+    \item Ottenere maggiori privilegi
+    \item Ricognizione interna
+    \item Muoversi all'interno del sistema
+    \item Rubare dati
+    \item Distruggere il sistema
+    \item Sovrascrivere o corrompere dati
+    \item Modificare dati di nascosto
+\end{itemize}
+
+
+\subsection{TrickBot}
+\label{subsec:trickbot}
+È un trojan avanzato che i criminali spargono principalmente attraverso campagne di email phishing in cui viene inviato un allegato malevolo o un link ad un server malevolo che fa scaricare il malware contenente il payload che una volta eseguito si collega al server \acrshort{C2} e scarica TrickBot.\\
+La struttura del malware è modulare tale per cui i moduli del malware lo spargono in giro abusando del protocollo \acrfull{SMB}.\\
+Gli attaccanti possono usare TrickBot per:
+È capace di rubare dati attraverso un server \acrshort{C2}, minare criptovalute e riconoscere altri host nella rete tracciandone i dettagli.
+In quest'ultimo caso a TrickBot è aggiunto un file di configurazione dedicato che ne specifica i passaggi da compiere.
+\begin{itemize}[noitemsep]
+    \item Scaricare altri malware come \textbf{Ryuk}\footnote{https://en.wikipedia.org/wiki/Ryuk\_(ransomware)} e \textbf{Conti}\footnote{https://en.wikipedia.org/wiki/Conti\_(ransomware)} ransomware
+    \item Essere utilizzato come un downloader stile Emotet
+\end{itemize}
+\begin{figure}[!htp]
+    \centering
+    \includegraphics[width=1\textwidth]{images/trickbotkillchain.png}
+    \caption{fonte \url{https://blog.gigamon.com/2019/03/02/revisiting-prolific-crimeware-to-improve-network-detection-trickbot/}}
+    \label{fig:trickbotkillchain}
+\end{figure}

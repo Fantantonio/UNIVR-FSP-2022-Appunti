@@ -1,0 +1,164 @@
+\section{Cyber Threat Landerscape}
+\label{sec:cyberthreatlanderscape}
+Per avere un'ottica degli attacchi che avvengono quotidianamente è possibile visitare il sito web \url{www.threatmap.checkpoint.com} che tiene traccia di tutti gli attacchi quotidiani e mostra una mappa in tempo reale degli stessi.
+I trend dell'anno sono:
+\begin{itemize}[noitemsep]
+    \item Attacchi legati al Covid-19
+    \item Attacchi ransomware
+    \item Attacchi di supply chain
+    \item Attacchi cloud
+    \item Attacchi IoT
+\end{itemize}
+
+\subsection{Attacchi di supply chain}
+Supply chain si riferisce all'ecosistema del processo, le persone, organizzazioni ed i distributori coinvolti nella creazione e nell'invio del prodotto finale\cite{ENISA_SupplyChainAttacks}.
+È scomponibile in quattro elementi chiave:
+\begin{itemize}[noitemsep]
+    \item Supplier: è il fornitore del prodotto o servizio
+    \item Supplier assets: sono gli elementi di valore che servono al fornitore per produrre il prodotto o servizio
+    \item Customer: è l'entità che consuma il prodotto o servizio
+    \item Customer assets: sono gli elementi di valore posseduti dal customer
+\end{itemize}
+Le aziende esternalizzano sempre più l'asset (es: spostano su cloud) e per farlo si appoggiano a major vendor come Microsoft, Apple, Amazon.
+In alcuni casi è esternalizzato l'intero sistema.
+L'attaccante quindi hackerando l'attaccante e passando per tutta la catena di suppliers, raggiunge infine il customer in cui viene portato a compimento l'attacco vero e proprio.
+
+\subsection{Attaccare il venditore}
+Un attacco di questo tipo al supplier può essere fatto in vari modi:
+\begin{itemize}[noitemsep]
+    \item Software pre-esistente: software utilizzato dal supplier, web servers e quant'altro
+    \item Librerie software: librerie e pacchetti di terze parti
+    \item Codice: software prodotto dal supplier
+    \item Configurazioni: password, chiavi API, regole del firewall, URL
+    \item Dati: informazioni del supplier, valori dei sensori, certificati, dati personali di customer e supplier
+    \item Processi: aggiornamento, backup, processo di firma dei certificati
+    \item Hardware: hardware prodotto dal supplier, chip, valvole, USB
+    \item Persone: individui con permessi di accesso ai dati, all'infrastruttura o ai dipendenti
+\end{itemize}
+Le tecniche utilizzate per condurre attacchi di supply chain sono:
+\begin{itemize}[noitemsep]
+    \item Infezioni di malware: spyware per rubare credenziali degli impiegati
+    \item Ingegneria sociale: phishing, applicazioni false, convincere il venditore a compiere azioni
+    \item Attacchi di forza bruta: indovinare una password SSH, indovinare una login
+    \item Sfruttare una vulnerabilità software: SQL injection o buffer overflow nelle applicazioni
+    \item Sfruttare una vulnerabilità di configurazione
+    \item Attacco fisico o modifiche: modificare l'hardware o intrusioni fisiche
+    \item L'intelligence open-source (OSINT): cercare online le credenziali, chiavi API o nomi utente
+    \item Contraffazione: imitare una USB con intenzioni malevole
+\end{itemize}
+
+\subsection{Attaccare il cliente}
+Per attaccare un cliente invece vengono sfruttate le seguenti tecniche:
+\begin{itemize}[noitemsep]
+    \item Relazioni fidate: fidarsi di un certificato, di un aggiornamento automatico o di un backup automatico
+    \item Drive-by compromessi: script malevoli in un sito web per infettare utenti con malware
+    \item Phishing: scrivere messaggi impersonando il venditore, false notifiche di aggiornamento
+    \item Infezioni di malware: \acrfull{RAT}, backdoor, ransomware
+    \item Attacchi fisici o modifiche: modificare l'hardware o intrusioni fisiche
+    \item Contraffazione: false USB, modificare motherboard, impersonare personale del venditore
+\end{itemize}
+e l'obiettivo è ottenere l'asset del customer che corrisponde a:
+\begin{itemize}[noitemsep]
+    \item Dati: dati di pagamento, video, documenti, emails, piani di viaggio, dati di vendita e finanziari, proprietà intellettuale
+    \item Dati personali: dati del customer, credenziali, registro dei dipendenti
+    \item Software: accesso al codice sorgente del cliente, modifica del codice del cliente
+    \item Processi: documentazione dei processi interni, operazioni e configurazioni, inserimento di processi malevoli, documenti di schematiche
+    \item Larghezza di banda: usare la banda per compiere \acrshort{DDoS}, inviare email SPAM o compiere infezioni su larga scala
+    \item Finanziari: rubare cryptovalute, dirottare trasferimenti bancari
+    \item Persone: individui presi di mira per la loro posizione o conoscenza
+\end{itemize}
+
+\subsection{SolarWind}
+\label{subsec:solarwind}
+Gli hacker russi, probabilmente sovvenzionati dallo stato, hanno manomesso Orion\footnote{https://www.solarwinds.com/orion-platform}, una piattaforma di monitoraggio e analisi di proprietà di SolarWind, e rilasciato un aggiornamento malevolo.
+Essendo utilizzato da più di 300.000 aziende l'attacco ha prodotto molteplici vittime.\\
+L'attacco ha seguito le seguenti fasi:
+\begin{enumerate}[noitemsep]
+    \item Initial Infiltration: sfruttamento di una vulnerabilità nel servizio di autenticazione. Questo ha permesso agli attaccanti di accedere persistentemente nelle imprese vittime ed esaminare email e sviluppare profili degli sviluppatori da colpire
+    \item Reconnaissance: avviata una campagna di phishing dedicata agli sviluppatori scelti
+    \item Spear Phishing: infettati i le instanze locali degli sviluppatori vittima
+    \item Weaponization: manipolati i sistemi per inserire delle backdoor
+    \item Infiltration of Downstream Users: abusare della relazione di fiducia per penetrare l'infrastruttura dell'utente finale
+\end{enumerate}
+
+\subsection{COVID-19 Related Attacks}
+\label{subsec:covid19relatedattacks}
+Con la pandemia da covid-19 gli attacchi che hanno utilizzato la situazione come pretesto sono aumentati. Si rivelano attacchi tramite phishing \cite{medicalequipmenttargeted}, malware, domini malevoli e fake news.\\
+Le campagne di phishing composte da email con allegato malevolo sono state inviate sfruttando motivazioni legate alla situazione pandemica adducendo quindi a presunti salari anticipati, o al risultato di tamponi non effettuati.\\
+Oltre a questa tipologia persistono anche le cosiddette \virgolette{frodi nigeriane} che sfruttano la debolezza umana nel voler ricevere soldi gratuitamente e quindi tombole, giveaway, eredità ecc.\\
+Le campagne di phishing puntano sull'autorevolezza della fonte, fingendosi enti governativi, pubblici o aziende private molto famosi, e sull'urgenza in modo da spingere la vittima a scaricare l'allegato o ad inviare le credenziali senza riflettere a fondo.\\
+Non solo le campagne di phishing hanno però sfruttato il contesto pandemico.
+Sono molte infatti le app malevole (Trojan \acrfull{APK}) spacciate per App Immuni o altre legate al Covid-19.\\
+Alcuni malware sono sfruttati per poi scaricare altri malware sulla macchina vittima.
+Uno dei casi più famosi è quello di \textbf{Emotet}\footnote{https://en.wikipedia.org/wiki/Emotet}, un malware nato nel 2014, si pensa in Ucraina, per furto di dati bancari che ora viene utilizzato per scaricare altri malware.\\
+Emotet sfrutta delle macro, ora disabilitate di default nei sistemi Windows, per far eseguire codice malevolo alla macchina vittima.
+Disabilitare le macro di default non è una soluzione ma solo uno step in più per l'attaccante che ora deve convincere la vittima anche ad abilitarle.
+Nel 2021 la collaborazione tra Germania e Ucraina ha portato al blocco dei server utilizzati per spargere l'infezione di Emotet. Prima del blocco, essendo stati sequestrati i server di comando del malware, è stato inviato dalle autorità un comando per la rimozione del malware a tutte le macchine infette.\\
+I creatori di Emotet, essendo riusciti ad infettare molte macchine, permettevano lo sfruttamento della loro botnet per spargere altri virus o eseguire attacchi \acrshort{DDoS}.\ 
+L'evoluzione di Emotet in loader, malware utilizzato per il download di altri malware, è stato portata alla ribalta dal propagarsi dell'infezione di \textbf{Trickbot}\footnote{https://en.wikipedia.org/wiki/Trickbot} nel 2020 (maggiori dettagli nella sottosezione \nameref{subsec:trickbot} dedicata).\\
+Trickbot è altro trojan nato nel 2016 per il furto di dati bancari e che anch'esso viene sfruttato come loader di altri malware e si pensa diventerà il nuovo Emotet.\\
+Anche in Italia vengono sviluppati malware ed è stato riportato l'utilizzo di un ransomware spacciato come App Immuni attraverso campagne di phishing.\\
+Da notare anche l'incremento di registrazioni di domini legati al Covid-19 utilizzati come domini malevoli \cite{covid19domainnames}.
+Il \underline{phishing attraverso sito web} malevolo funziona copiando siti web conosciuti (es: banche, e-commerce...) che registrano i dati inseriti dagli utenti.
+Se qualche anno fa avere il certificato \acrfull{SSL} (quindi comunicazione garantita attraverso HTTPS e lucchetto nella barra di ricerca dei più blasonati browser web) era ritenuto un valore di sicurezza del sito web, oggi anche i siti web malevoli si adoperano per ottenere la certificazione ed aumentare la loro credibilità.\\
+Le \underline{fake news} sono state utilizzate massivamente per alimentare il panico e favorire il proliferare di phishing e virus informatici \cite{fakenewscovid19}.
+Tra i gruppi di hacker che hanno operato in questo periodo di pandemia ci sono anche quelli che si presume essere finanziati da Nation State come Russia e Nord Corea tra cui i gruppi Stronzium e NKO.\\
+Sono stati colpiti ospedali e centri di ricerca per il furto di dati sia con attacchi di phishing che di forza bruta per ottenere le credenziali.
+
+\subsection{Ransomware}
+I ransomware sono incrementati del 90\% negli ultimi anni. Agiscono criptando file specifici data la loro estensione e chiedendo un riscatto per ricevere la chiave di decriptazione.\\
+In alcuni casi oltre a criptare i dati li copiano anche in modo da richiedere un doppio riscatto (chiave di decriptazione e non pubblicazione dei file).\\
+In altri il riscatto è triplo perché viene richiesto un pagamento anche agli interessati dai dati rubati come per esempio quanto accaduto dopo il furto di dati ad una compagnia che teneva un registro delle diagnosi private ed interviste ai pazienti.
+Un caso simile è accaduto ad un'azienda collaboratrice di Apple alla quale hanno rubato dei blueprint di prodotti Apple. L'azienda collaboratrice non ha voluto pagare il riscatto così gli attaccanti hanno contattato direttamente Apple la quale alla fine ha preferito pagare il riscatto.\\
+A volte i ransomware colpiscono aziende o fornitori di alto rilievo causando disagi molto importanti come accaduto alla Colonial Pipeline, fornitore di carburante in tutti gli USA. In questo caso l'attacco ha provocato un blocco delle forniture di un'infrastruttura pubblica.\\
+Ci sono ransomware che vengono progettati per attaccare una determinata azienda come accaduto a Garmin con l'attacco WastedLocker che ha criptato tutti i file con l'estensione \textit{.garminwasted}.
+Il ransomware in questione ha sfruttato il Windows Cache Manager per bypassare il software antivirus.
+Solitamente i ransomware vengono identificati per il comportamento \virgolette{apri e cifra} ripetuto con intensità elevata nell'arco di tempo.
+In questo caso invece i file vengono caricati in cache e modificati all'interno della cache per poi riscaricarli senza destare sospetti.
+
+\subsection{CryptoMiner}
+I cryptominer sono malware che vengono installati ed eseguiti sulle macchine vittima per minare criptovalute in background.\\
+Il mining è un'operazione che richiede una grande potenza di calcolo per ottenere un riscontro significativo quindi solitamente vengono infettate molte macchine in modo da creare una rete di bot detta \virgolette{botnet} che compie le azioni di mining.\\
+\textbf{Xring} è un software open source utilizzato per il mining legittimo ma che viene sfruttato dai criminali per il mining malevolo.
+
+\subsection{Android}
+Anche i dispositivi mobile ed \acrfull{IoT} non sono immuni dai virus, anzi.
+\textbf{FluBot} è un malware che colpisce sistemi Android.
+Il malware viene fatto scaricare da un link inviato per SMS. Una volta scaricato l'\acrshort{APK} e convinto l'utente ad installarlo disabilitando la protezione per l'installazione di APK di terze parti (non scaricati attraverso store ufficiali), sfrutta i permessi per rubare dati di carte di credito.\\
+Gli smart watches sono anch'essi dispositivi oggetto di attacchi malware e possono causare gravi danni anche alle persone basti considerare app che ricordano di assumere il medicinale attraverso notifica per pazienti con deficit di memoria.
+Modificare lo scheduling può far assumere i medicinali in quantità eccessive e causare fin anche la morte della vittima.\\
+Il fatto è che non si pensa mai al rischio di un attacco ma sempre al \virgolette{chi vuoi che ci attacchi?}.
+Ciò che invece andrebbe imposto è l'utilizzo del sistema di progettazione definito \virgolette{security by design}
+
+Tra i tool utilizzati per compiere attacchi c'è anche il noto tool a pagamento (di cui si trovano le crack free online) Cobalt Strike. Questo software è venduto come tool per il penetration testing poiché permette di portare a termine varie tipologie di attacchi ma spesso viene utilizzato con scopi malevoli.
+
+\subsection{IoT}
+L'\acrshort{IoT} in questo contesto è molto vulnerabile agli attacchi informatici. Il 57\% dei dispositivi \acrshort{IoT} sono vulnerabili ad attacchi di media o alta severità.\\
+Gli strumenti \acrshort{IoT} comunicano verso una app di riferimento oppure verso un cloud centrale.
+Spesso queste comunicazioni non sono criptate e dunque è possibile leggerle e modificarle.\\
+Consideriamo il caso di un paziente diabetico con un iniettore di insulina \acrshort{IoT} al quale vengono inviati dei dati modificati per far si che somministri una dose mortale di insulina.
+Nel Maggio 2021 una falla di questo tipo ha costretto al ritiro di un dispositivo di questo genere\footnote{https://www.fda.gov/medical-devices/medical-device-recalls/medtronic-recalls-remote-controllers-used-paradigm-and-508-minimed-insulin-pumps-potential}.\\
+Molto spesso viene utilizzata una password di default oppure il sistema in esecuzione non è aggiornato (XP, 7 non più supportati) o non è nemmeno aggiornabile.\\
+Gli \acrshort{IoT} inoltre, per limitare il consumo di energia (pensiamo a prodotti wearable) tende ad avere una memoria interna bassa con una potenza computazionale minima e questo rende difficile implementare sistemi di autenticazione per rendere più difficile l'attacco da parte di criminali.\\
+Ci sono vari esempi di come falle in librerie o errori di scrittura del codice possono portare a compormettere sistemi compresi quelli \acrshort{IoT}.\\
+Il C è un linguaggio in cui è facile generare errori di memoria. Per esempio se ad una \code{malloc} viene passato un numero troppo grande si ottiene un \virgolette{Integer Overflow} che rende possibile l'esecuzione di istruzioni malevole.\\
+Nel 2020 è sono state scoperte 19 vulnerabilità nella libreria \textbf{Ripple20} per la comunicazione \acrfull{TCP/IP}. Alcune di queste vulnerabilità sono state valutate con il livello massimo di gravità perché permettono l'accesso a dati sensibili o l'accesso da remoto a macchine vittima.\\
+Il caso singolare dei comandi inviati attraverso ultrasuoni (Siri), laser o clonando la voce della vittima ma interpretati comunque dagli assistenti vocali rende l'idea delle potenziali vulnerabilità legate a questa tecnologia.\\
+Non mancano poi attacchi effettivi come quelli compiuti ai danni di videocamere, elettrodomestici di vario genere ed anche baby monitor.
+Il problema molto spesso risiede nella mancanza di una password o nella debolezza della stessa.\\
+Il più grande portale/motore di ricerca di dispositivi connessi in rete è \textbf{SHODAN}\footnote{https://www.shodan.io/}.
+Fornisce molte informazioni su ogni dispositivo dalla tipologia di prodotto alle porte aperte.\\
+Il problema delle password deboli è stato ben sfruttato dalla botnet \textbf{Mirai} che ha sfruttato le macchine vittime per attacchi \acrshort{DDoS}.
+Il sistema di infezione di Mirai scansiona costantemente il web alla ricerca di devices \acrshort{IoT} accessibili via internet per poi inserire le login di default del prodotto o tentare login molto comuni.
+Una volta ottenuto l'accesso alla macchina vittima Mirai installa il malware che la forza a fare riferimento ad un server centrale di controllo che la rende un bot da utilizzare in attacchi \acrshort{DDoS}.\\
+I dispositivi più vulnerabili nel mondo medicale sono soprattutto dispositivi di diagnostica (Imaging System, Patient Monitoring, Medical Device Gateway).
+
+\subsection{Cloud Attacks}
+Gli attacchi a sistemi cloud sono per la maggior parte conseguenza di errate configurazioni dei sistemi stessi.\\
+È emblematico il caso dell'esposizione dei dati degli utenti relativo al servizio Amazon S3 Bucket, servizio di \acrfull{AWS} nel quale è molto difficile non fare errori di configurazione dei bucket.
+Alcuni penetration tester hanno infatti scoperto alcuni bucket aziendali con tutte le informazioni erroneamente accessibili al pubblico.
+Questi tipi di vulnerabilità sono stati scoperti anche in cloud universitari e di altre aziende.\\
+Microsoft non ne è immune; il sistema di permessi di default di Power Apps ha causato errori di configurazione che hanno rivelato milioni di dati privati.
+Il sistema di \acrfull{API} per accedere ai dati, costringeva infatti a riconfigurare la privatizzazione dei permessi di lettura dei dati manualmente.\\
+Un altro caso è quello dell'attacco di \textbf{DroppelPaymer} nei confronti di \textbf{Bretagne Télécom} nel quale è stato sfruttato una falla di Citrix ADC per installare un ransomware. L'azienda si è salvata solo grazie al backup scollegato.\\
+Ed ancora le due vulnerabilità di Microsoft Azure una su Azure Stack e Data service per i quali attraverso determinati percorsi non era richiesta l'autenticazione per accedere al servizio.

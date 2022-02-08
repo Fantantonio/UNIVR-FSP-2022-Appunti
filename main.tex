@@ -1,0 +1,149 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english,italian]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{nameref}
+\usepackage[skip=3pt, font=footnotesize]{caption}
+\usepackage{array}
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{xurl}
+\usepackage[normalem]{ulem}
+\usepackage{eurosym}
+\usepackage[shortcuts,acronym]{glossaries}
+\makeglossaries
+
+% imposta la dimensione dei margini
+\geometry{
+    a4paper,
+    left=30mm,
+    right=30mm,
+    top=30mm,
+    bottom=30mm,
+}
+
+% Definisce la cartella delle immagini
+\graphicspath{ {images/} }
+
+% Rimuove il numero delle sezioni
+%\setcounter{secnumdepth}{0}
+
+% Modifica il secondo elemento delle liste in pallino vuoto
+\setlist[itemize,2]{label=\textopenbullet}
+
+% comando che crea virgolette di apertura e chiusura
+\newcommand{\virgolette}[1]{``#1''}
+
+% comando che colora di blu il testo. Usato per nuovo contenuto
+\newcommand{\blue}[1]{\color{blue}#1\color{black}}
+%\newcommand{\blue}[1]{#1}
+
+% comando che colora di rosso il testo. Usato per contenuto rimosso
+\newcommand{\red}[1]{\color{red}\sout{#1}\color{black}}
+%\newcommand{\red}[1]{}
+
+% comando che colora di blu il testo. Usato per i TODO
+\newcommand{\todo}[1]{\color{purple}*#1\color{black}}
+
+% comando che rende codice il testo
+\newcommand{\code}[2][RGB]{%
+  \begingroup
+  \texttt{
+  \definecolor{hlcolor}{#1}{226,226,226}\sethlcolor{hlcolor}%
+  \hl{#2}%
+  }
+  \endgroup
+}
+
+
+
+
+
+% acronimi
+\newacronym{DDoS}{DDoS}{Distributed Denial of Service}
+\newacronym{RAT}{RAT}{Remote Access Trojan}
+\newacronym{APK}{APK}{Android application PacKage}
+\newacronym{SSL}{SSL}{Secure Sockets Layer}
+\newacronym{IoT}{IoT}{Internet of Things}
+\newacronym{HTTPS}{HTTPS}{Hypertext Transfer Protocol Secure}
+\newacronym{HTTP}{HTTP}{Hypertext Transfer Protocol}
+\newacronym{TCP/IP}{TCP/IP}{Transmission Control Protocol/Internet Protocol}
+\newacronym{AWS}{AWS}{Amazon Web Services}
+\newacronym{API}{API}{Application Programming Interface}
+\newacronym{C2}{C2}{Command and Control}
+\newacronym{SMB}{SMB}{Server Message Block}
+\newacronym{2FA}{2FA}{Two Factor Authentication}
+
+
+
+
+
+\begin{document}
+
+% Prima pagina
+\begin{titlepage}
+    \centering
+    \vfill
+    \vspace*{4cm}
+    \Huge Appunti Fondamenti di sicurezza e privacy\\
+    \vspace*{1cm}
+    \large Università degli studi di Verona\\
+    \vspace*{4cm}
+    \normalsize Antonio Panfili\\
+    \vspace*{7cm}
+    %\footnotesize 20 Gennaio 2022
+    \footnotesize \today
+    \vfill
+\end{titlepage}
+\newpage
+
+% Indice
+\tableofcontents
+\newpage
+
+% Sezioni
+% INTRODUZIONE
+\input{sections/01_introduzione}
+
+% LEZIONE 1 e 2
+\input{sections/02_cyberthreatlanderscape}
+
+% LEZIONE 3.1
+\input{sections/03_cyberkillchain}
+
+% LEZIONE 3.2
+\input{sections/04_mitreattack}
+
+% LEZIONE 4
+\input{sections/05_socialengineering}
+
+% LEZIONE 5
+\input{sections/06_cyberwar}
+\newpage
+
+
+
+\newpage
+% ACRONIMI
+\printglossary[type=\acronymtype]
+
+% LISTA FIGURE
+\listoffigures
+
+% LISTA TABELLE
+\listoftables
+
+\begin{thebibliography}{00}
+\bibitem{VIRSEC_SolarWInd} Satya Gupta, VIRSEC \url{https://www.virsec.com/resources/learning-center/white-paper-taxonomy-of-the-attack-on-solarwinds-and-its-supply-chain}
+\bibitem{ENISA_SupplyChainAttacks} I. Lella, M. Theocharidou, E. Tsekmezoglou, A. Malatras - European Union Agency for Cybersecurity, S. Garcia, V. Valeros - Czech Technical University in Prague \url{https://www.enisa.europa.eu/publications/threat-landscape-for-supply-chain-attacks}, Luglio 29, 2021
+\bibitem{medicalequipmenttargeted} C. Zaboeva  \url{https://securityintelligence.com/posts/german-task-force-for-covid-19-medical-equipment-targeted-in-ongoing-phishing-campaign/}, Giugno 8, 2020
+\bibitem{covid19domainnames} J. Szurdi, Z. Chen, O. Starov, A. McCabe, R. Duan \url{https://unit42.paloaltonetworks.com/how-cybercriminals-prey-on-the-covid-19-pandemic/}, Aprile 22, 2020
+\bibitem{fakenewscovid19} Dr. J. Scott Brennen, Felix Simon, Dr Philip N. Howard, Prof. Rasmus Kleis Nielsen \url{https://reutersinstitute.politics.ox.ac.uk/types-sources-and-claims-covid-19-misinformation}, Aprile 7, 2020
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,74 @@
+\section{Social Engineering}
+\label{sec:socialengineering}
+L'ingegneria sociale, è lo studio del comportamento di una persona al fine di carpire informazioni utili.\\
+In un'infrastruttura ben protetta il punto debole è spesso l'uomo; il 22\% degli attacchi di phishing utilizza l'ingegneria sociale.\\
+Alcune delle figure che utilizzano in modo criminale l'ingegneria sociale sono:
+\begin{itemize}
+    \item Hacker: l'obiettivo è far installare alla vittima un software per poi accedere a conti correnti ecc...
+    \item Identity Thieve: l'obiettivo è rubare i dati della vittima per impersonarla oppure per venderli nel dark web
+    \item Scam Artist: l'obiettivo è convincere la vittima ad inviare soldi al truffatore
+\end{itemize}
+Un caso fortunato è quello della \textbf{Bangladesh Bank} che ha sventato una truffa da un miliardo di dollari grazie ad un errore di scrittura dei truffatori.\\
+Meno fortunato invece il presidente francese \textbf{Macron}.
+Attraverso l'ingegneria sociale gli attaccanti sono riusciti ad avere accesso al suo account social e hanno invitato i suoi stessi follower a non votarlo.\\
+Parecchi danni li ha fatti anche la \textbf{Facebook Lottery Scam} cioè lotterie truffa che si fa forte del nome Facebook per attirare vittime.
+I malintenzionati chiedono soldi alle vittime promettendo un regalo di molto più alto valore per ingannarle.
+
+\subsection{Attack Life Cycle}
+Il primo passo del ciclo di vita di un attacco è ottenere informazioni.\\
+Un sistema per farlo è quello di spiare la vittima (es: spiare persone che lavorano al pc in treno o in luoghi pubblici), un altro è frugare nella spazzatura alla ricerca di post-it e documenti.\\
+Il secondo è stabilire relazioni impersonando qualcuno per poi passare al terzo passo che è quello esplorativo in cui si rubano le informazioni e si inseriscono le backdoor ed infine il quarto passo è l'esecuzione finale con cui si ottiene il risultato desiderato.\\
+Dal quarto passo si può tornare al primo nel caso in cui l'obiettivo sia recuperare informazioni per svolgere altri attacchi.\\
+I tipi di attacchi che sfruttano l'ingegneria sociale sono:
+\begin{itemize}[noitemsep]
+    \item Phishing: attacco via email in cui è allegato un file malevolo o inserito un link a sito malevolo. Il testo spinge la vittima ad agire in tempo breve e/o sfrutta una finta posizione di forza
+    \item Spear phishing: attacco di phishing targhetizzato sul profilo della vittima
+    \item Whailing: attacco di phishing mirato a persone di alto profilo (CEO, CFO...)
+    \item Viral hoaxe: post o video che stimolano la curiosità dell'utente per reindirizzarlo su un sito malevolo
+    \item Virus hoax: alert falsi attestanti la presenza di virus sulla macchina vittima
+    \item Vishing: \virgolette{voice-phishing}, attacco di phishing condotto al telefono. A volte viene inviato un messaggio in-app che chiede di richiamare il finto servizio clienti
+    \item Impersonation: impersonificazione di autorità, persone più alte in grado o persone di cui ci fidiamo
+    \item SMiShing: \virgolette{SMS-phishing}, attacco di phishing condotto via SMS
+    \item Tailgating: accedere fisicamente ad un'area riservata senza essere notati. Per esempio rimanendo dietro un vero dipendente con il badge oppure fingendosi un corriere
+\end{itemize}
+
+\subsection{Attacchi di Phishing}
+Il phishing è il tentativo di acquisire informazioni sensibili come nomi utente, password, dettagli delle carte di credito ed in alcuni casi indirettamente soldi, fingendosi, in una comunicazione elettronica, entità di cui fidarsi.\\
+Uno dei siti più copiati per questi motivi è \textbf{Office 365}.\\
+Quanto sono effettivi gli attacchi di phishing?
+\begin{itemize}[noitemsep]
+    \item L'88\% delle organizzazioni nel modo ha riscontrato attacchi di phishing nel 2019
+    \item Il 95\% di tutti gli attacchi in reti aziendali sono il risultato di spear phishing di successo
+    \item Il 22\% dei data breaches nel 2019 ha coinvolto attività di phishing
+    \item Il 97\% degli utenti non può identificare un'email di phishing sofisticata
+    \item Il 30\% delle email sono lette dalle vittime
+    \item Il 12\% delle vittime ha cliccato il link malevolo o ha scaricato l'allegato malevolo contenuto nell'email
+    \item Il 15\% delle vittime sono contattate almeno un'altra volta nel corso dell'anno
+\end{itemize}
+Un caso molto rilevante nato da attività di phishing è il data breach di \textbf{Target} che ha portato al furto di dati di carte di credito di 41 milioni di utenti.\\
+In alcuni casi l'email di phishing simula una condivisione di documenti Google Docs da parte di una persona che conosciamo, in altri è particolarmente evidente che si tratta di una truffa.\\
+È importante fare attenzione al reale mittente così come al vero href del link inserito nell'email.\\
+\begin{itemize}[noitemsep]
+    \item Exploiting Authority: l'attaccante sfrutta il nome di un'autorità per essere più credibile
+    \item Exploiting Scarcity: l'attaccante sfrutta un presunto tempo limitato prima che un evento accada (es: scadenza di una promozione o pagamento di una multa)
+    \item Exploiting Commitment: l'attaccante sfrutta il fatto che la vittima ottemperi a norme sociali come ad esempio un avviso di comparizione
+    \item Exploiting Linking: l'attaccante sfrutta la fiducia nelle relazioni di amicizia della vittima
+    \item Exploiting Reciprocation: l'attaccante sfrutta il fatto che la gente tende a compiere un'azione se ottiene qualcosa in cambio
+    \item Exploiting Social Proof: l'attaccante sfrutta il concetto che se molte persone hanno già compiuto un'azione allora c'è da fidarsi
+\end{itemize}
+La prof. ha condotto uno studio assieme ad un ragazzo della magistrale le cui conclusioni sono che:
+Il 31.4\% degli impiegati ha cliccato il link nell'email di phishing, il 23.4\% degli impiegati ha inserito le credenziali nel sito di phishing ed il 69.2\% degli impiegati che ha cliccato il link di phishing ha inserito le credenziali nel sito di phishing.
+In pratica chi ha cliccato il link ha anche inserito le credenziali.\\
+L'exploit che preme sull'urgenza è risultato il migliore (33.8\% vittime di urgenza, 21.5\% vittime di autorità, 15.6\% vittime di phishing senza tecnica di persuasione).\\
+Si è notato anche che i link e la firma dell'email non vengono ispezionati con attenzione.
+Se si vogliono testare le proprie capacità di riconoscimento delle email di phishing, esiste un servizio dedicato a questo link \url{www.phishingquiz.withgoogle.com}.
+
+I siti di phishing d'altra parte presentano spesso un indirizzo poco legittimo o l'utilizzo di un sotto dominio fraintendibile o una cartella finale contenente la webapp con nome di un dominio legittimo, e mancano di certificato \acrshort{SSL}, quindi di lucchetto \acrshort{HTTPS}.\\
+Il sito \url{https://phishtank.org/} permette di sottomettere un link per avere una valutazione indipendente sulla sua reale legittimità.\\
+Per bloccare attacchi di phishing un'azienda dovrebbe adottare un approccio a livelli multipli:
+\begin{itemize}[noitemsep]
+    \item Livello 1: rendere difficile ad un attaccante raggiungere l'utente implementando controlli anti-spoofing in modo che sia più difficile per l'attaccante conoscere gli indirizzi email del personale, tenere conto delle informazioni che vengono rese pubbliche attraverso sito web e social oltre a informare anche i dipendenti che ciò rappresenta una vulnerabilità, filtrare e bloccare email di phishing
+    \item Livello 2: Aiutare gli utenti ad identificare e riportare email sospette attraverso la formazione dei dipendenti e creando un sistema che permette ai dipendenti di chiedere aiuto attraverso un sistema di report semplice in una struttura che non li ferisce sentimentalmente in caso di richiesta d'aiuto o d'errore
+    \item Livello 3: Proteggere l'organizzazione dall'effetto di una email di phishing non identificata utilizzando la \acrfull{2FA} ed una struttura di permessi gerarchica, proteggendo gli utenti da siti web malevoli, utilizzando un server proxy e un browser web aggiornato oltre che tenendo attivo un antivirus su ogni dispositivo
+    \item Livello 4: Rispondere rapidamente agli incidenti definendo un piano di disposta per le differenti tipologie di incidenti includendo le responsabilità legali e rilevandoli velocemente incoraggiando i dipendenti a riportare le attività sospette
+\end{itemize}
