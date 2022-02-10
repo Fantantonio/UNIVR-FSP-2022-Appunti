@@ -1,2 +1,103 @@
 \section{Cyber War and Attacks to Critical Infrastructures}
 \label{sec:cyberwar}
+Si parla di cyber war solo nel caso in cui l'attacco sia rivolto ad un'\textbf{infrastruttura critica}.\\
+Le infrastrutture critiche sono quelle strutture, sistemi, siti, informazioni, persone, reti e processi indispensabili per uno stato poiché su di essi dipende la vita di ogni giorno.
+Inoltre riguardano anche tutte quelle strutture, siti ed organizzazioni che pur non essendo indispensabili per mantenere un servizio, richiedono la massima protezione come siti chimici e nucleari.\\
+Alcuni esempi di settori critici sono:
+\begin{itemize}[noitemsep]
+    \item Chimico
+    \item Nucleare civile
+    \item Comunicazioni
+    \item Difesa
+    \item Servizi di emergenza
+    \item Energetico
+    \item Finanziario
+    \item Alimentare
+    \item Governativo
+    \item Medicale
+    \item Spaziale
+    \item Trasporto
+    \item Idrico
+\end{itemize}
+Una compromissione di questi asset critici può comportare una mancanza, l'integrità o la ricezione di servizi essenziali ed impatti significativi nella sicurezza dello stato, nella sua difesa e nelle sue funzioni.\\
+Attacchi ad infrastrutture critiche accadono ogni giorno; tra questi ne elenchiamo alcuni:
+\begin{itemize}[noitemsep]
+    \item 2019: ACSO Industries colpita da ransomware, Norsk Hydro attaccata, colpito il sistema di trattamento dell'acqua a Mosca, piattaforma Noya in Giappone
+    \item 2018: Boing colpita da WannaCry, GreyEnergy APT, Shamoon colpisce Saipem e Fossenheim piattaforma nucleare
+    \item 2017: Wolf Creek piattaforma nucleare, Triton, Energetic Bear, WannaCry, NoPetya
+    \item 2016: Colpita la rete energetica di Kiev e attacco \acrshort{DDoS} alla compagnia di riscalfamento Finlandese
+    \item 2015: Energetic Bear attacca un'acciaieria Tedesca e la rete energetica Ucraina
+    \item 2010: Stuxnet
+\end{itemize}
+Molte infrastrutture critiche sono controllate e gestite da un \acrfull{ICS}.
+Gli \acrshort{ICS} controllano molte delle funzionalità che utilizziamo quotidianamente senza che noi ce ne accorgiamo (es: accendere la luce, fare la doccia, bere acqua dal rubinetto...).\\
+Il fatto che gli \acrshort{ICS} si stiano sempre più connettendo ad internet li espone a nuovi rischi.
+Alcune delle vulnerabilità sono:
+\begin{itemize}[noitemsep]
+    \item Nessun programma di formazione sulla sicurezza per gli \acrshort{ICS}
+    \item \acrshort{OS} e software installati potrebbero non essere più supportati o ricevere patch
+    \item Utilizzo di configurazioni di default
+    \item Dati non protetti nei dispositivi portatili
+    \item Mancato utilizzo di password
+    \item Applicazione di controlli d'accesso inadeguati
+    \item Controlli di sicurezza fisici inadeguati per sistemi critici
+    \item Buffer overflow
+    \item Mancato tracciamento dei log
+\end{itemize}
+
+\subsection{Stuxnet}
+La prima arma informatica riconosciuta è \textbf{Stuxnet}, scoperta nel giugno 2010.
+Un malware estremamente sofisticato che sfruttava 4 vulnerabilità zero-day e 2 rootkit.\\
+Creato presumibilmente dalla \acrfull{NSA} statunitense assieme a \acrfull{CIA} ed ai servizi segreti Israeliani prendeva di mira i \acrfull{PLC} usati per il controllo e la gestione delle centrifughe per l'arricchimento dell'uranio ed il 70\% delle vittime dell'infezione sono stati siti nucleari Iraniani.\\
+Nello specifico si pensa che qualcuno abbia portato una USB infetta, contenente un \virgolette{Autorun.inf} lanciato da un exploit della vulnerabilità \virgolette{LNK}, all'interno del sito nucleare perché il sito non è collegato in rete ma il malware ha anche la capacità di propagarsi attraverso le reti infettando macchine WinCC e propagandosi attraverso vulnerabilità di Windows che non erano ancora state scoperte.\\
+Dato che Stuxnet non fa nulla a meno che non noti la presenza del programma specifico dei \acrshort{PLC} delle centrifughe, è stato scoperto solo dopo molto tempo.\\
+L'obiettivo è riprogrammare i \acrshort{PLC} così da copiare i valori dei sensori in fase di corretta attività e successivamente attuare delle modifiche ai parametri delle funzioni delle centrifughe fornendo però come output i dati di funzionamento corretto registrati in precedenza.\\
+Minime variazioni di pressione e di rotazione delle centrifughe porta allo scoppio delle stesse ed a danni rilevanti che comportano tempi di stop prolungati.\\
+Si presume che in fase di scrittura del codice malevolo gli attaccanti abbiano fatto uso dei video propagandistici dello stato Iraniano scoprendo così dalle riprese alcuni dettagli dei software utilizzati e della struttura stessa in relazione alla disposizione delle centrifughe e da questa dei \acrshort{PLC} utilizzati.\\
+Stuxnet ha anche la capacità di collegarsi ad un server \acrshort{C2} (due server HTTP in ascolto su porta 80).
+Da questi server è capace di scaricare altri file come backdoor o una versione aggiornata del malware.
+
+\subsection{Attacchi Sandworm}
+Il gruppo di criminali ha compiuto molteplici attacchi nel corso degli anni tra cui:
+\begin{itemize}[noitemsep]
+    \item 2015-16: governo Ucraino e infrastrutture critiche
+    \item 2017: campagna di spearphishing contro il partito del presidente Francese Macron
+    \item 2017: infezione di NotPetya
+    \item 2017: campagna di spearphishing contro ospiti, partecipanti, partner e volontari dell'olimpiade invernale di PyeongChang
+    \item 2017: Olympic Destroyer attacco al sistema IT delle olimpiadi invernali di PyeongChang
+    \item 2018: investigazioni sull'avvelenamento di Novick
+    \item 2018-19: compagnie Georgiane ed enti governativi
+\end{itemize}
+Alcuni dei criminali sono stati successivamente arrestati.\\
+
+\subsubsection{BlackEnergy}
+Il primo attacco è stato fatto ad una centrale elettrica Ucraina creando un blackout di 6 ore nella regione di Kiev.
+In questo attacco sono stati in grado di controllare i \acrshort{PLC} o gli \acrfull{RTU} e hanno aperto gli interruttori per bloccare il flusso di energia elettrica.\\
+La metodologia d'attacco parte dalle email di phishing a persone nell'IT o amministrazione della compagnia per ottenere le credenziali alla \acrshort{VPN}.
+Scaricato ed eseguito il file malevolo (contenente macro) veniva installato il malware \textbf{BlackEnergy 3} che apriva la comunicazione con il server \acrshort{C2} da cui gli attaccanti installavano \textbf{KillDisk}, un malware necessario per prevenire la ripresa del controllo da parte delle vittime perché cancella il \acrfull{MBR}.
+Infine gli attaccanti eseguivano un attacco \acrshort{DoS} al call center della compagnia per disturbare la possibilità per gli utenti di segnalare il disservizio.\\
+BlackEnergy conteneva:
+\begin{itemize}[noitemsep]
+    \item Network scanner
+    \item File stealer
+    \item Password stealer
+    \item Keylogger
+    \item Screenshots
+    \item Network discovery
+\end{itemize}
+Gli obiettivi dell'attacco erano in prima fase rubare le credenziali e nella seconda bloccare il sistema.
+
+\subsubsection{Industroyer}
+Un secondo attacco sempre nella regione di Kiev è stato portato a termine utilizzando il malware \textbf{Industroyer}.\\
+Il blackout è durato solo 1 ore ed l'attacco è iniziato con una campagna di spearphishing mesi prima.\\
+Industroyer è un malware molto sofisticato creato per interrompere il servizio di un \acrfull{ICS} nello specifico quelli utilizzati nelle sottostazioni elettriche.
+Implementa protocolli di comunicazione utilizzati negli \acrshort{ICS} e crea dei \acrshort{DDoS} contro i relé di protezione di Simens.\\
+Ha la capacità di inserire backdoor multiple per evitare che scoperta una l'attaccante perda il controllo e permette di modificare il path dei servizi in uso nei registri di Windows rendendo la macchina non bootabile.
+
+\subsubsection{NotPetya}
+\label{subsub:notpetya}
+Il 27 giugno 2017 molte organizzazioni in giro per il mondo hanno subito l'attacco di un ransomware denominato NotPetya.\\
+Intercettando il traffico verso i server che distribuivano l'aggiornamento di un software per la gestione delle tasse, si veniva reindirizzati ad un server malevolo che faceva scaricare ed installare il ransomware con la conseguenza di ritrovarsi i dati criptati con algoritmo AES 128.\\
+La richiesta di riscatto era di \$ 300 in Bitcoin ma era strano il fatto che venisse utilizzato lo stesso indirizzo Bitcoin a tutte le vittime e che venisse richiesto di inviare un'email di conferma dell'avvenuto pagamento.\\
+L'attacco compromise la maggior parte delle macchine in rete locale in sole due ore.\\
+In caso di mancato sistema di comunicazione della chiave non c'è modo di sapere quale chiave di decrittazione inviare alla vittima se si utilizza un id univoco per tutte e quindi si pensa che questo attacco mirasse ad altro e che il ransomware fosse solo una copertura.

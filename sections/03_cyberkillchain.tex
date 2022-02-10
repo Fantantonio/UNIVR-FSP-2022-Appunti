@@ -100,3 +100,40 @@ In quest'ultimo caso a TrickBot è aggiunto un file di configurazione dedicato c
     \caption{fonte \url{https://blog.gigamon.com/2019/03/02/revisiting-prolific-crimeware-to-improve-network-detection-trickbot/}}
     \label{fig:trickbotkillchain}
 \end{figure}
+
+\subsection{Ransomware Cyber Kill Chain}
+\begin{enumerate}[noitemsep]
+    \item La vittima riceve un'email di phishing contenente un link ad un sito web infetto e lo visita
+    \item Il web server malevolo trova una vulnerabilità nel sistema vittima
+    \item Il ransomware viene automaticamente scaricato e si esegue
+    \item L'eseguibile cancella eventuali copie di sé stesso e si propaga attraverso il file system
+    \item Il ransomware trova i file con un'estensione specifica e li cripta
+    \item Il ransomware contatta il server \acrshort{C2} e invia la chiave di criptazione assieme ai dettagli della macchina vittima
+    \item Il ransomware riceve le informazioni di pagamento dal server \acrshort{C2}
+    \item Il ransomware imposta un conto alla rovescia prima di cancellare ogni file della vittima
+    \item Il ransomware mostra le informazioni di pagamento
+    \item Se la vittima paga gli attaccanti, il ransomware potrebbe contattare il server \acrshort{C2} per ricevere la chiave di decriptazione
+    \item Se la vittima non paga gli attaccanti in tempo, la chiave di decrittazione viene distrutta
+\end{enumerate}
+La fase di weaponization si differenzia a seconda della scelta fatta dagli attaccanti.
+Il ransomware è basato su script e quindi scaricato da uno script e caricato direttamente in memoria; è nascosto all'interno di un file di formato differente e tutte le corrispondenze del file nel \acrfull{MFT} vengono rimosse.\\
+Per evitare di essere scovati dagli anti-virus i ransomware cifrano ad intervalli di tempo oppure solo quando la vittima esegue un backup, attendono che il codice sia in memoria pronto all'esecuzione per eliminare i file del malware stesso, cifrano le comunicazioni attraverso rete \textbf{Tor}, per prevenire il reverse engineering o il codice viene cifrato oppure riempito di funzioni inutili.\\
+La fase di delivery è piuttosto standard attraverso phishing, spear phishing, malvertisement o sistemi di distribuzione del traffico.\\
+La exploitation si avvale di \textbf{Anger EK} per sfruttare le vulnerabilità di Adobe Flash e Microsoft Silverlight, \textbf{Neutrino} e \textbf{Magnitude EK} che sfruttano le vulnerabilità di Adobe Flash e \textbf{Blackhole EK} che invece si focalizza sulle vulnerabilità di Adobe Reader e Adobe Flash Java.\\
+Oltre agli exploit kits c'è anche la possibilità che sfruttino vulnerabilità ancora non note \virgolette{Zero-Day} ed altre vulnerabilità scoperte durante la fase di ricognizione.\\
+L'installazione prevede di rendere i file della vittima inutilizzabili criptandoli, comprimendoli in zip con password, criptando l'\acrshort{MBR} e distruggendo i backup ma anche la diffusione del ransomware attraverso la rete.
+La propagazione dell'infezione può essere ottenuta attraverso varie modalità.\\
+L'utilizzo di dispositivi rimovibili è piuttosto semplice considerando che sono facili da trovare nel sistema, facili da scollegare, possono contenere e condividere informazioni e si può fare leva sulla funzionalità dell'\virgolette{AutoPlay}.\\
+Per eseguire un l'auto-play/auto-run è necessaria la presenza di un file denominato \virgolette{autorun.inf} che è utilizzato per facilitare l'avvio dell'interfaccia grafica per i CD.\\
+Un'altra modalità di propagazione dell'infezione è attraverso la condivisione di file molto comune nel mondo IT nata prima della condivisione via cloud e della tecnologia di sincronizzazione.\\
+In pratica è un server di condivisione dei documenti.
+Basta che uno solo dei dipendenti carichi un file infetto perché anche gli altri lo ricevano e vengano infettati.\\
+Nel caso di cartelle condivise, per evitare di far copiare l'intero malware col rischio che venga bloccato dall'anti-virus del ricevente, si usa creare un collegamento al desktop della macchina infetta e copiare solo il collegamento.
+Il collegamento contiene il comando di esecuzione del malware così una volta eseguito dall'utente viene eseguito il malware della macchina infetta nella nuova macchina vittima.\\
+La fase di command and control viene prima di iniziare la criptazione così da ricevere subito la chiave di criptaggio e dopo così che il malware possa ricevere i dettagli per il pagamento.
+Per contattare il server \acrshort{C2} a volte viene inserito l'indirizzo IP nel codice, altre volte si utilizza un algoritmo di generazione dei domini in modo che venga aggiornato il dominio ogni volta così da non poterlo inserire nella lista nera dei domini malevoli, altre volte ancora attraverso una botnet.\\
+L'action and objectives si ottiene ricevendo il pagamento.
+Nei primi ransomware si chiedeva un pagamento via Paypal, oggi è più comune la richiesta di Bitcoin o attraverso portale o attraverso portali anonimi che gestiscono direttamente il pagamento e l'invio del software di decriptazione.\\
+Per prevenire un attacco ransomware non cliccare mai su link non verificati, non aprire allegati email non fidati, non scaricare mai software da siti web non fidati, non pubblicare informazioni personali, mantieni aggiornati i software e l'\acrshort{OS} e fai il backup dei dati.\\
+Per rispondere ad un attacco ransomware la prima cosa da fare è scollegarsi dalla rete per non far propagare il malware, eseguire una scansione con l'internet security software, utilizzare un software per la decriptazione o, nel caso si abbia un backup, ripristinare il backup.\\
+Esistono anche dei siti che permettono di risolvere alcuni attacchi ransomware come \url{www.nomoreransom.org}
