@@ -1,0 +1,143 @@
+\section{Introduzione alla Privacy}
+\label{sec:introductiontoprivacy}
+Sul TIME Zuckerberg ha detto che \virgolette{la privacy è morta}.\\
+Effettivamente paragonando il mondo offline con quello online le nostre abitudini sono cambiate molto:
+
+\begin{table}[h!]
+\centering
+\caption{Tabella comparativa azioni Offline ed Online.}
+\label{table:offlineonline}
+\begin{tabular}{ |l|l| }
+    \hline
+    \textbf{Offline} & \textbf{Online} \\
+    \hline
+    Conversazioni faccia a faccia & Messaggistica istantanea \\
+    \hline
+    Lettere postali & Email \\
+    \hline
+    Archivi cartacei & Cloud \\
+    \hline
+    Pagamenti in contanti & Carte di credito \\
+    \hline
+    Seguire le persone fisicamente & Tracciamento della posizione \\
+    \hline
+    Conoscere i propri amici & Social network \\
+    \hline
+    Cercare informazioni nei libri & Ricerca Google \\
+    \hline
+\end{tabular}
+\end{table}
+
+Le informazioni sono difficili e costose da ottenere, mantenere e ricercare nel mondo offline.\\
+Il mondo online ha permesso di introdurre il concetto di \virgolette{Surveillance Capitalism} - Shoshama Zuboff.\\
+Emergono però nuove problematiche tra cui il furto di dati, cosa che accade costantemente ogni giorno.\\
+Nel 2021 ha fatto scalpore il \textbf{Data Breach di Facebook} che ha rivelato le informazioni di 1.5 miliardi di utenti (circa la metà degli utenti di Facebook) tra cui nomi, cognomi, email, indirizzo ecc...
+Nel 2013 il caso di \textbf{Edward Snowden} ha messo in risalto l'aspetto legato alla sorveglianza attiva di massa dunque non più solo la profilazione per scopi di marketing.\\
+A causa di tutto ciò gli organismi politici internazionali stanno applicando nuove regole per la gestione e trasmissione dei dati come per esempio il \acrfull{GDPR}, il protocollo di tracciamento senza dati dell'utente tramite Bluetooth \acrfull{DP3T} così come nascono nuovi progetti tra i quali la \textbf{rete Tor} per l'anonimato ed il \textbf{Privacy Badger} che previene l'online tracking.\\
+Il tentativo di creare delle leggi per il trattamento dei dati personali ha fatto emergere il problema della definizione di che cos'è un dato personele.
+Per quanto riguarda il \acrshort{GDPR} ogni informazione relativa ad una persona identificata o identificabile direttamente o indirettamente è un dato personale la tal persona invece è definita \textbf{Data Subject}. Quindi anche l'indirizzo IP è considerato dato personale o qualsiasi numero identificativo.\\
+Un'altra definizione necessaria è quella del controllore dei dati \textbf{Data Controller} cioè la persona o figura legale, autorità pubblica, agenzia o qualsiasi altro corpo che singolarmente o in gruppo con altri determina i motivi della lavorazione dei dati personali.
+
+Il significato di privacy è cambiato durante il tempo ed essendo un concetto soggettivo è stato definito in vari modi durante il tempo
+\begin{table}[h!]
+\centering
+\caption{Definizioni di privacy.}
+\label{table:definizioniprivacy}
+\begin{tabular}{ |c|c|l| }
+    \hline
+    \textbf{Anno} & \textbf{Autore} & \textbf{Definizione} \\
+    \hline
+    1890 & Warren \& Brandeis & Il diritto di essere lasciati da soli \\
+    \hline
+    & & Il diritto dell'individuo di decidere che\\
+    1970 & Westin & informazioni riguardanti sè stesso dovrebbero\\
+    & & essere comunicate agli altri ed in quale circostanza \\
+    \hline
+    1970 & Solove & La tassonomia della privacy è nociva \\
+    \hline
+    2001 & Agre \& Rotenberg & La libertà alla costruzione della propria identità\\
+    & & da vincoli irragionevoli \\
+    \hline
+    2004 & Nissenbaum & Privacy come Integrità Contestuale \\
+    \hline
+    2018 & \acrshort{GDPR} & Trasparenza, scopo, proporzionalità,\\
+    & & responsabilità \\
+    \hline
+\end{tabular}
+\end{table}
+Quanto detto da Westin nel 1970 è alla base delle regole di privacy attuali, Agre \& Rotenberg invece hanno un approccio più psicologico sul come un utente si esprime sapendo di essere ascoltato, Nissenbaum vede l'utente come una persona che condivide informazioni a seconda del contesto (es: certe informazioni le dici al medico ma non le pubblicheresti sul web), infine il \acrshort{GDPR} considera il problema anche dal punto di vista di chi raccoglie i dati il quale ha il compito di dire come, per quale ragione e se li condividerà con terzi e con questo tenere traccia di come vengono raccolti, utilizzati e trasmessi a terzi.
+
+\subsection{Proprietà della Privacy}
+Ci sono due macro possibilità su come i dati vengono forniti e dunque su come agiscono i protagonisti del sistema in oggetto.\\
+La \textbf{Hard Privacy} prevede la minimizzazione dei dati; il soggetto fornisce meno dati possibili.
+Riduce il più possibile la necessità di fiducia con altre entità.
+I dati infatti potrebbero già essere cifrati durante l'invio al Data Controller.\\
+La \textbf{Soft Privacy} si verifica quando il Data Subject ha già perso il controllo dei suoi dati per cui è molto difficile per il Data Subject verificare come i suoi dati sono archiviati e processati.
+Ciò accade quando l'utente si fida del Data Controller e quindi è il Data Controller che deve tutelare i dati dell'individuo.
+In questo modo diventa più difficile per l'individuo avere controllo di come i propri dati vengono processati.\\
+L'\textbf{Anonimity} è definita da Pfitzmann come l'incapacità per un attaccante di identificare il soggetto all'interno di un insieme di soggetti detto anonimity set.
+Questo in linea di principio si ottiene nascondendo il collegamento tra l'identità e l'azione o pezzo d'informazione.\\
+Un modo per ottenere l'anonimato è l'utilizzo di uno \textbf{Pseudonimo} tuttavia tendenzialmente l'utente utilizza sempre lo stesso pseudonimo ovunque e questo si traduce in tracciabilità dell'utente fintanto alla sua individuazione.\\
+L'\textbf{Unlinkability} o Scollegamento si verifica quando un attaccante non riesce a distinguere se due o più oggetti di interesse sono in relazione tra loro o no (es: due o più email).
+Anche in questo caso nascondendo il collegamento tra le azioni, le identità e i pezzi di informazione è la soluzione.\\
+L'\textbf{Irrintracciabilità} si verifica quando l'attaccante non riesce a distinguere se un oggetto appartiene o meno ad un insieme di oggetti.\\
+Una proprietà molto importante è anche la \textbf{Plausible Deniability} cioè l'impossibilità di provare che un utente conosce, ha fatto o detto qualcosa (es: utilizzato per il voto online).\\
+La \textbf{Confidenzialità} è la proprietà di conservazione delle restrizioni autorizzate all'accesso e alla divulgazione delle informazioni, compresi i mezzi per proteggere la privacy personale e le informazioni proprietarie.\\
+La \textbf{Compliance} è legata alla legislazione sulla protezione dei dati; la \acrshort{GDPR} specifica i principi per la gestione dei dati personali all'interno dell'Unione Europea.\\
+Infine l'\textbf{Awareness} è la proprietà per la quale l'utente dovrebbe essere messo a conoscenza delle conseguenze alla condivisione delle proprie informazioni.
+
+
+\subsection{Minacce alla Privacy}
+Solove ha definito quattro tipi di azioni che possono essere legate al concetto di privacy:
+\begin{itemize}[noitemsep]
+    \item Information collection: sorvegliare l'utente guardando, ascoltando e registrando audio, video. Questionari con domande inappropriate
+    \item Invasion: intrusione nella vita di una persona (giochi AR che direzionano l'utente in luoghi privati). Inferenza nelle decisioni di una persona
+    \item Information processing: aggregazione, insicurezza, identificazione, uso secondario, esclusione
+    \item Information dissemination: rompere la confidenzialità, pubblicazione di dati privati, amplificazione dell'accessibilità ai dati di una persona, ricattare per la cancellazione dei dati, utilizzare l'identità altrui per coinvolgere altri nel prodotto, pubblicare false informazioni di una persona
+\end{itemize}
+La sorveglianza è un concetto che è spesso sottovalutato se si considera che per esempio uno smart meter/hub casalingo rappresenta un modello di sorveglianza molto alto perché può fornire dati sui consumi, su quando la persona si sta lavando o sta cucinando, quando è in casa e quando no.\\
+Il caso delle smart tv che spiano l'utenza di fatto è un evento realmente accaduto che ha comportato una sanzione di \$ 2.2 milioni all'azienda produttrice che registrava dati quali la preferenza sui contenuti guardati per vendere pubblicità mirata.\\
+\textbf{Angry Birds} invece è stato preso di mira dalla \acrfull{NSA} e dal \acrfull{GCHQ} per ottenere i dati degli utenti.\\
+Il \textbf{probing} è il sistema di furto di informazioni adottato nelle campagne di phishing.\\
+Per quanto riguarda l'information processing, un caso di aggregazione dei dati è quello di \textbf{Target} che è riuscito a sapere prima della ragazza che la stessa era incinta consigliando l'acquisto di prodotti per donne in maternità.\\
+Casi di identificazione invece sono quelli in cui dai click fatti su di un sito è possibile determinare l'identità di un individuo mentre un caso eclatante di uso secondario è quello di \textbf{Cambridge Analytica} che con i dati di profili Facebook creava dei profili psicologici delle persone per spingerle a votare a favore di un candidato in particolare.\\
+Per quanto riguarda l'information processing alcuni casi sono il breach della confidenzialità accaduto a \textbf{Equifax}, azienda di recupero crediti che è stata hackerata con conseguente furto di dati sensibili per la predizione della capacità di pagamento del debito dei clienti, oppure il caso di exposure che ha coinvolto molte celebrità cadute vittime di campagne di phishing.
+Casi di appropriazione sono stati riscontrati nei social network dove criminali rubano l'identità delle persona per sfruttarla in altri social network e compiere truffe e casi di disseminazione sono per esempio i ransomware con doppia richiesta di riscatto (decriptare i dati e non renderli pubblici).
+La distorsione riguarda più i cosiddetti troll che in alcuni casi sono anche stati condannati a pene pecuniarie.
+Casi di invasion, nello specifico intrusion si sono registrati con frequenza grazie ai social network dove alcuni utenti hanno sfruttato le informazioni sulla geo-localizzazione di altri per atti di stalking ed anche crimini peggiori.
+Anche il cyberbullismo si alimenta di queste informazioni.
+
+\subsection{\acrfull{PETS}}
+Riguarda tutti gli strumenti, meccanismi e architetture che ambiscono a mitigare la preoccupazione sulla privacy pur permettendo agli utenti di gioire dei benefici delle tecnologie moderne.\\
+\acrshort{PETS} può essere applicata alle comunicazioni o a database esistenti, sia da utenti individuali che da organizzazioni.\\
+In poche parole sono quelle tecnologie e comportamenti a protezione della privacy.\\
+Quando il Data Controller è ritenuto affidabile è possibile applicare alcune tecnologie per la protezione dei dati tra cui:
+\begin{itemize}[noitemsep]
+    \item Criptazione dei dati sia in trasmissione che in archiviazione
+    \item Autenticazione e autorizzazione di dipendenti che gestiscono dati personali
+    \item Login sicuro per l'accesso ai dati
+    \item Cancellazione sicura dei dati (diritto all'oblio)
+    \item Controllo degli accessi basato sullo scopo
+\end{itemize}
+In questo caso il Data Controller si protegge da attacchi di terzi ma i dati rimangono vulnerabili se è il Data Controller stesso a decidere di utilizzarli in modalità non etiche o illegali.
+
+Tutte le tecnologie che permettono all'utente di scegliere se, come e in quale circostanza divulgare i propri dati personali ricadono nel macro gruppo definito \textbf{User Awareness Technologies}.
+Esse aiutano l'utente a fare scelte consapevoli riguardanti la protezione della propria privacy.\\
+Alcuni esempi di queste tecnologie sono:
+\begin{itemize}[noitemsep]
+    \item Privacy friendly defaults: settaggi della privacy di default impostati a privato
+    \item Impostazioni della privacy modificabili, feedback contestuali
+    \item Interfacce per l'esercizio sui diritti di accesso dell'utente
+    \item Privacy policies chiare, concise e comprensibili
+    \item Privacy nudges: sistemi di consapevolezza (es: app che mostrano all'utente quante volte è stata condivisa con app terze la loro posizione)
+\end{itemize}
+\textbf{Privacy Bird} è un esempio di tecnologia di questo tipo che mostra se le privacy policy di un sito sono in linea con le preferenze impostate dall'utente.
+
+Le \textbf{Anonimity Technologies} sono tutte quelle tecnologie che assicurano l'anonimato dell'utente come ad esempio:
+\begin{itemize}[noitemsep]
+    \item Anonimizzazione dei database: k-anonimity, l-diversity, t-closeness
+    \item Comunicazioni anonime: Mixnet, Onion routing, Tor
+    \item Credenziali anonime: Idemix (IBM) è un sistema che prova al provider di avere determinati attributi senza rivelare la propria identità. Il provider dunque non conosce chi è l'utente ma riceve solo la conferma che l'utente ha determinati attributi.
+\end{itemize}
+
+Esistono poi altre tecnologie che stanno venendo sviluppate per migliorare la privacy come gli archivi privati remoti, ricerca per parole chiave di file cifrati su cloud (quando i file sono salvati vengono etichettati per parole chiave), computazione dei dati che preserva la privacy.

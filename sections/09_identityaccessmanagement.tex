@@ -1,2 +1,122 @@
 \section{Identità e Gestione Accessi}
 \label{sec:identityaccessmanagement}
+Per evitare il problema delle password ripetute e quindi averne una diversa e randomica per ogni account, esistono gli \acrfull{IMP} che si occupano di contenere sia le credenziali che eventuali dati dell'utente ed inserirli automaticamente nelle pagine di login.\\
+Oltre alle password e nomi utente gli \acrshort{IMP} contengono anche altri dati come il numero del passaporto e della carta d'identità, l'indirizzo ecc...\\
+In questo modo il sistema verifica le credenziali del soggetto e permette o nega l'accesso ai servizi.
+
+L'utilizzo dei \acrfull{SSO} invece permette all'utente di eseguire un unico accesso ad uno dei servizi di un'azienda per poter fruire anche di tutti gli altri senza la necessità di ripetere il login.\\
+Questo sistema viene implementato attraverso token (Gmail $->$ YouTube) e può allargarsi anche a più aziende in che collaborano in una rete di reciproca fiducia (easyJet $->$ Booking.com).\\
+Oltre ad essere una comodità per l'utente, questa tecnologia permette anche di ridurre i costi di mantenimento del servizio di autenticazione per le aziende che così facendo non devono implementare singolarmente una struttura di registrazione, mantenimento dei dati ecc...\\
+
+\subsection{SPID}
+Anche lo \acrfull{SPID} è un sistema che si basa sullo stesso principio (ha già generato più di 26 milioni di identità digitali).
+Nel caso specifico dello \acrshort{SPID}, possiamo identificare vari responsabili per porzioni differenti del servizio:
+\begin{itemize}[noitemsep]
+    \item \acrfull{AgID}: l'entità che monitora e autorizza i fornitori di \acrshort{SPID}
+    \item Identity Provider: fornitore pubblico o privato che ccertificato da \acrshort{AgID} ha il permesso di verificare l'identità dell'utente e rilasciare lo \acrshort{SPID} (es: Poste, Aruba...)
+    \item Service Provider: entità pubblica o privata che offre un servizio online
+    \item Attribute Provider: entità che rilascia all'utente l'attributo di qualifica
+    \item Utente: possessore dello \acrshort{SPID} che lo utilizza per accedere al servizio online
+\end{itemize}
+Lo spid ha tre livelli di sicurezza
+\begin{itemize}[noitemsep]
+    \item Livello 1: permette di accedere con nome utente e password
+    \item Livello 2: permette di accedere con le credenziali di livello 1 e una \acrshort{OTP} generata dall'applicazione per smartphone e tablet
+    \item Livello 3: permette di accedere con i passaggi dei livelli 1 e 2 e l'aggiunta di un dispositivo fisico (es: smart card) garantito dall'identity provider
+\end{itemize}
+
+\subsection{SAML}
+Lo \acrfull{SAML} permette lo \acrshort{SSO} e la federazione delle identità fornendo uno standard per la rappresentazione delle asserzioni degli attributi e delle autenticazioni.\\
+Gli \acrshort{SAML} Asserting Party o Identity Provider verificano l'identità di un utente e rilasciano un'asserzione di autenticazione.\\
+L'utente può presentare al provider del servizio l'asserzione dell'autenticazione senza dover ripetere l'autenticazione.\\
+In poche parole è un protocollo \acrfull{XML} con cui gli identity provider si scambiano informazioni ad esempio Dropbox che permette l'autenticazione attraverso Google o \textbf{Shibboleth}, un consorzio che permette alle università di condividere risorse e ricerche attraverso confini istituzionali con un protocollo simile allo \acrshort{SAML}.
+Le asserzioni dello \acrshort{SAML} sono tre:
+\begin{itemize}[noitemsep]
+    \item Authentication statement: descrive lo scopo utilizzato per l'autenticazione del soggetto
+    \item Attribute statement: elenca gli attributi posseduti dal soggetto
+    \item Authorization statement: definisce i permessi del soggetto
+\end{itemize}
+Gli elementi comuni in un'asserzione sono:
+\begin{itemize}[noitemsep]
+    \item Emittente e timestamp di emissione
+    \item ID dell'asserzione
+    \item Soggetto (nome e dominio di sicurezza)
+    \item Condizioni per le quali l'asserzione è valida (condizioni come la validità per un periodo di tempo)
+\end{itemize}
+
+
+\section{Controllo degli Accessi}
+L'elemento centrale della sicurezza informatica è il controllo degli accessi che previene un accesso non autorizzato alle risorse ed anche l'utilizzo in modo non autorizzato di una risorsa.\\
+Ovviamente coinvolge l'autenticazione al sistema e l'assegnazione dei permessi di accesso a certe risorse del sistema.\\
+I principi del controllo degli accessi sono l'\textbf{Autenticazione} che verifica l'identità rivendicata da o per un'entità di sistema, l'\textbf{Autorizzazione} che garantisce i permessi ad un'entità di sistema di accedere alle risorse e l'\textbf{Accountability}/Responsabilità che monitora e processa l'accesso degli utenti alle risorse.\\
+Il sistema di controllo degli accessi si sviluppa attraverso:
+\begin{itemize}[noitemsep]
+    \item Policies: coinvolgono i soggetti cioè le entità che possono accedere all'oggetto, gli oggetti cioè la risorsa ad accesso controllato (file, cartelle...) e il diritto di accesso (o permessi) cioè il modo in cui i soggetti accedono all'oggetto (scrittura, lettura...).
+    \item Modelli:
+    \begin{itemize}[noitemsep]
+        \item \acrfull{MAC} $->$ accesso basato sull'etichetta di sicurezza dell'oggetto e sul livello di autorizzazione del soggetto; utilizzato principalmente in ambito militare
+        \item \acrfull{DAC} $->$ accesso basato sull'identità del soggetto.
+        \item \acrfull{RBAC} $->$ accesso basato sul ruolo impersonato dal soggetto; il più utilizzato.
+        \item \acrfull{ABAC} $->$ accesso basato sugli attributi del soggetto, dell'oggetto e del contesto; molto utilizzato
+        \item In alcuni casi come per esempio quello famoso di \textbf{Edward Snowden}, i dipendenti possono abusare dei loro permessi per compiere azioni illecite come la fuga di notizie o la vendita di informazioni riservate. Ci sono poi casi in cui la specificità della situazione non permette l'implementazione dei modelli sopra descritti (es: accesso \acrshort{IoT} ad abitazione per baby sitter, impresa delle pulizie, abitanti, amici...)
+    \end{itemize}
+    \item Meccanismi
+\end{itemize}
+
+\subsection{Modello DAC}
+Prevede regole esplicite che stabiliscono chi può o non può eseguire quali azioni e su quali risorse.
+L'amministratore può modificare/revocare i permessi degli utenti.
+Implementata spesso come \textbf{matrice degli accessi} che tuttavia è molto dispendiosa a livello di memoria (per ogni soggetto, per ogni risorsa, il soggetto ha il permesso di...).\\
+Esistono anche altri sistemi come la \textbf{lista del controllo accessi} in cui per ogni risorsa si ha la lista di chi può accedere e come ma ha lo svantaggio di dover scorrere tutte le liste in caso di eliminazione di un utente per rimuovere tutti i permessi oppure la \textbf{capability list} cioè per ogni utente si ha la lista delle risorse che può vedere e di quali sono i permessi per ognuna tuttavia è difficile avere un'anteprima dei permessi garantiti ad un oggetto.\\
+La gestione delle policy è un compito complesso in sistemi elaborati ed è difficile avere la visione generale dei permessi concessi agli utenti per le risorse.
+
+\subsection{Modello RBAC}
+Questo sistema si divide esso stesso in tre tipologie differenti:
+\begin{itemize}[noitemsep]
+    \item $RBAC_0$: l'RBAC di default
+    \item $RBAC_1$: somma tra $RBAC_0$ e la gerarchia dei ruoli cioè un sottoruolo eredita i permessi del sopraruolo
+    \item $RBAC_2$: $RBAC_1$ + vincoli che possono essere statici \acrfull{SSD} cioè un utente non può essere assegnato a più di n ruoli nell'insieme dei ruoli o dinamici \acrfull{DSD} cioè un utente non può attivare più di n ruoli in un insieme di ruoli nella stessa sessione)
+\end{itemize}
+Nel caso del $RBAC_2$ è da considerare qual è il ruolo di un utente nel momento specifico \virgolette{session\_role} (es: un professore non può collegarsi contemporaneamente come studente). Il vantaggio del modello \acrshort{RBAC} è l'efficienza nell'amministrare e monitorare i permessi poiché l'assegnamento dei permessi non è manuale ma automatico con l'assegnazione del ruolo è tuttavia difficile implementare correttamente il controllo degli accessi quando ci sono migliaia di ruoli che cambiano spesso e si è notato che dal 50\% al 90\% degli impiegati in grandi organizzazioni hanno più permessi di ciò che gli compete.
+
+\subsection{Modello ABAC}
+Il modello \acrshort{ABAC} permette o impedisce al soggetto di compiere un'operazione in base agli attributi assegnati al soggetto, all'oggetto ed alle condizioni specifiche del momento oltre che dall'insieme di regole che sono impostate sulla relazione tra attributi e condizioni.\\
+Ad esempio i medici del reparto di cardiologia possono visualizzare i record dei pazienti cardiopatici utilizzando il computer dell'ospedale all'interno del reparto ospedaliero.
+
+\subsection{Standard XACML}
+L'\acrfull{XACML} è uno standard OASIS\footnote{https://www.oasis-open.org} che fornisce un linguaggio per la definizione di policy basato su \acrshort{XML}, un linguaggio di richiesta e risposta basato su \acrshort{XML}, tipi di dati, funzioni e algoritmi di combinazione standard, un'architettura che definisce la maggior parte dei componenti in un'implementazione, un profilo di privacy ed un profilo \acrshort{RBAC}.
+\begin{itemize}[noitemsep]
+    \item 1) Il \textbf{policy enforcement point} è l'entità che protegge le risorse (file, cartelle ecc) e che conduce i controlli d'accesso prendendo le decisioni sulle richieste, rinforzando le decisioni di autorizzazione ed eseguendo gli obblighi
+    \item 2) Il \textbf{policy decision point} riceve ed esamina le richieste, recupera le policies applicabili, valuta le policy applicabili e risponde la decisione presa
+    \item 3) Il \textbf{policy administration point} crea le policies di sicurezza e le archivia nel repository
+    \item 4) Il \textbf{context handler} converte le richieste da formato nativo a \acrshort{XACML} e converte le decisioni sulle autorizzazioni dal formato \acrshort{XACML} a quello nativo
+    \item 5) Il \textbf{policy information point} rappresenta il sorgente dei valori degli attributi o i dati richiesti per la valutazione delle policies
+\end{itemize}
+Il flusso di dati di questo modello inizia con 3 che scrive le policies e gli insiemi di policy rendendoli accessibili a 2 $->$ il richiedente l'accesso manda una richiesta a 1 $->$ che la inoltra a 4 il quale la traduce in \acrshort{XACML} e $->$ la invia a 2 il quale richiede ogni attributo aggiuntivo $->$ a 4 che li richiede a $->$ 5 il quale recupera gli attributi e $->$ li ritorna a 4.\\
+Il sistema è applicabile sia in rete locale che in cloud.\\
+I componenti chiave del linguaggio \acrshort{XACML} sono:
+\begin{itemize}[noitemsep]
+    \item \code{$<PolicySet>$}: è la chiave di alto livello dell'elemento che aggrega altri elementi PolicySet o Policy
+    \item \code{$<Policy>$}: elemento composto principalemnte da \code{$<Target>$}, \code{$<Rule>$} e \code{$<Obligation>$} ed è valutato dal policy decision point per produrre ed accedere alla decisione
+    \item \code{$<Rule>$}: elemento che fornisce le condizioni che testano gli attributi rilevanti all'interno della \code{$<Policy>$}
+    \item \code{$<Target>$}: elemento utilizzato per abbinare le risorse richieste con una Policy applicabile. Utilizza gli elementi \code{$<AnyOf>$}, \code{$<AllOf>$} e \code{$<Match>$}
+    \item \textbf{Algoritmi di Combinazione}: utilizzati per riconciliare più risultati delle valutazioni delle policies in un'unica decisione. Il risultato in caso di algoritmi \virgolette{First-applicable} è la prima regola/policy il quale target è valutato \code{True}.
+\end{itemize}
+
+\subsection{OAuth}
+Il protocollo OAuth è un protocollo di autorizzazione standard che permette ad applicazioni di terze parti di proteggere risorse ospitate su server \acrshort{HTTP}.
+Richiede un \textbf{access token} da un server di autorizzazione così che le applicazioni di terze parti possano usarlo per richiedere un accesso alle risorse riservate.\\
+Gli attori in gioco in questo modello sono:
+\begin{itemize}[noitemsep]
+    \item Resource Owner: entità che garantisce l'accesso ad una risorsa riservata (es: Mario)
+    \item Resource Server: il server in cui sono archiviate le risorse richieste dal proprietario (es: Facebook)
+    \item Authorization Server: il server che distribuisce il token di accesso al cliente dopo aver autenticato il proprietario della risorsa e ottenuto la sua autorizzazione (es: Facebook)
+    \item Client: un'applicazione di terze parti che richiede accesso a risorse riservate a nome del proprietario e con il suo permesso (es: Spotify)
+\end{itemize}
+
+Ci sono tre tipi differenti di autenticazione attraverso OAuth:
+\begin{itemize}[noitemsep]
+    \item \textbf{Authorization Code Grant Flow}: questo è il sistema applicato in tutti quei contesti in cui chi gestisce l'autenticazione differisce da chi gestisce il servizio (es: utente $->$ autenticazione con Google $->$ accesso a Spotify). Chi gestisce il servizio può essere un'applicazione web piuttosto che un un'applicazione nativa (app Android) o basata interamente su browser
+    \item \textbf{Resource Owner Password Grant Flow}: in questo caso invece è lo stesso gestore a servire sia l'autenticazione che il servizio (es: utente $->$ login Google $->$ Gmail e GApps)
+    \item \textbf{Client Credential Grant FLow}: questo sistema permette ad applicazioni di eseguire in autonomia l'autenticazione in vece dell'utente (es: Google Doc per accedere ai file deve autenticarsi su Google Cloud Storage da cui poter recuperare i file dell'utente). Il processo è sempre legato all'access token ma in questo caso di tipo applicativo e non utente.
+\end{itemize}
