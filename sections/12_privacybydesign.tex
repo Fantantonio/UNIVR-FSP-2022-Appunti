@@ -1,2 +1,35 @@
-\section{Privacy di Design}
+\section{Privacy per Design}
 \label{sec:privacybydesign}
+Ci sono 7 principi fondamentali:
+\begin{enumerate}[noitemsep]
+    \item Proactive not Reactive: prevenire non rimediare
+    \item Privacy come impostazione di default
+    \item Privacy incorporata nel design
+    \item Funzionalità complete
+    \item Sicurezza end-to-end e protezione a vita
+    \item Trasparenza
+    \item Rispetto per la privacy degli utenti
+\end{enumerate}
+
+\subsection{Metodologia LINDDUN}
+La metodologia \acrfull{LINDDUN}, basata sulla conoscenza, nasce con lo scopo di aiutare gli ingegneri del software con poche esperienze di privacy ad introdurre il concetto di privacy all'inizio dello sviluppo.\\
+La prima parte corrisponde alla creazione del diagramma del flusso di dati e alla descrizione di tutti i dati, poi vengono mappate le minacce ed i rischi al diagramma di flusso dei dati identificandole attraverso l'albero delle minacce, infine vengono gestite le minacce.
+\acrshort{LINDDUN} aiuta nella fase di riconoscimento delle minacce dando supporto documentale nel mappare le tabelle e con la tassonomia delle minacce così come nella fase di gestione delle minacce fornendo documentazione sulla tassonomia delle strategie di mitigazione delle minacce e sulla classificazione delle soluzioni per la privacy.\\
+Ognuna delle parole che compongono l'acronimo \acrshort{LINDDUN} corrisponde ad una minaccia da considerare e gestire.
+La stesura di card che considerano le minacce permette di riassumere il tutto in tabella e successivamente di esportare la tabella come grafico tenendo presente le relazioni di fiducia tra elementi se si assume che si comportino come ci si aspetta.\\
+Gli step da compiere sono dunque:
+\begin{enumerate}[noitemsep]
+    \item Creare un modello del sistema
+    \begin{itemize}[noitemsep]
+        \item Entità $->$ rettangolo
+        \item Processo $->$ ellisse
+        \item Archivio di dati $->$ parole tra due linee orizzontali
+        \item Flusso di dati $->$ freccia che punta dalla sorgente al ricevente
+        \item Confine di fiducia $->$ rettangolo tratteggiato che racchiude vare entità, processi ecc...
+    \end{itemize}
+    \item Mappare il diagramma di flusso dei dati degli elementi come categorie \acrshort{LINDDUN} $->$ tabella con le \virgolette{X} in caso di minaccia
+    \item Ricavare e documentare le minacce ad esempio usando una struttura ad albero
+    \item Assegnare una priorità alle minacce riscontrate calcolando un punteggio dato da probabilità ed impatto
+    \item Documentare una strategia di mitigazione per tutti i casi di rischio alto o critico utilizzando la tabella comparativa \acrshort{LINDDUN}
+    \item Scegliere soluzioni avanzate per la tutela della privacy
+\end{enumerate}

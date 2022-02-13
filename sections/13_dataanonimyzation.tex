@@ -1,2 +1,58 @@
 \section{Anonimizzazione dei Dati}
 \label{sec:dataanonimyzation}
+Una delle domande più difficili a cui rispondere è come elaborare e realizzare funzioni di un dataset contenente informaizioni personali e sensibili proteggendo tuttavia la privacy individuale?\\
+La domanda nasce dal fatto che i dati in possesso di aziende come Google, Facebook ecc... vengono utilizzati anche da altre aziende non solo private ma anche governative per scopi di analisi ecc...\\
+È quindi importante che questi dati siano resi anonimi.
+
+Per provare a rispondere a tale domanda è bene classificare gli attributi come segue:
+\begin{itemize}[noitemsep]
+    \item Identificatori espliciti: identificano un utente come il nome, il cognome, il numero di passaporto...
+    \item Quasi-identificatori: data di nascita, età, codice postale, numero di telefono...
+    \item Attrivuti sensibili: malattie, salari... Sono anche quegli attributi di cui i ricercatori hanno bisogno e che quindi sono sempre rilasciati direttamente
+\end{itemize}
+Un sistema per la protezione degli identificatori espliciti è la \textbf{Tokenizzazione} cioè generare un token unico per ogni riferimento oppure adottare la \textbf{Sostituzione} sostituendo randomicamente un attrivuto con attributi inventati (nomi a caso).\\
+Questi sistemi purtroppo non sono abbastanza per proteggere i dati poiché filtrando i dati attraverso gli altri attributi oppure collegando diversi dataset è possibile comunque risalite all'identificatore esplicito.
+
+\subsection{K-Anonimity}
+In caso di attributi quasi-identificatori, un dato deve essere indistinguibile da almeno $k-1$ altri dati.\\
+Inoltre, sempre per quanto riguarda gli attributi quasi-identificatori, ogni classe di equivalenza deve contenere almeno k dati che hanno lo stesso valore.\\
+Per ottenere questi due principi vengono adottate due tecniche, la \textbf{Generalizzazione} e la \textbf{Soppressione}.\\
+Nello specifico la prima rimpiazza quasi-identificatori specifici con valori meno specifici (es: l'età invece di essere $23$ è $2*$ oppure $\geq20$) finché non ci sono almeno k valori identici.\\
+La seconda invece viene adottata quando la generalizzazione provoca troppa perdita di informazioni e non fa altro che rimuovere un'intera colonna che non è utile allo scopo statistico (es: la religione o il nome).\\
+Inoltre ci sono altri algoritmi che possono essere applicati per raggiungere lo scopo ma rimane il problema che questo sistema provoca errori statistici perché i casi limite vengono generalizzati per ottenere l'offuscamento.\\
+Di fatto più si generalizza, più si perdono dettagli.\\
+La k-anonimity non garantisce la privacy se i valori sensibili in una classe di equivalenza mancano di diversità (\textbf{homogeneity attack}: può accadere quando l'attributo sensitivo è uguale per tutti i k-record nella classe di equivalenza e quindi a prescindere da chi sia il soggetto in ogni caso ha quel valore di attributo) oppure quando l'attaccante ha delle conoscenze di base (\textbf{background attack}: sapendo che una nazionalità ha un tatto di affetti da una patologia, si deduce per probabilità che il soggetto è colui che ha quella patologia conoscendo la sua nazionalità come dato di partenza).
+
+\subsection{L-Diversity}
+\label{subsec:tdiversity}
+L'l-diversity richiede che ogni classe di equivalenza abbia abbastanza valori sensibili diversi ma anche che la distribuzione delle differenze dei valori sensibili sia uniforme.
+L'entropia della distribuzione dei valori sensibili in ogni classe di equivalenza deve essere almeno $\log (l)$:
+\begin{center}
+$Entropia(E)=-\sum\limits_{s \in S}p(E, s)\log p(E, s)$\\
+\end{center}
+Cioè la somma per tutti i valori che l'attributo sensitivo può assumere (S) della frazione dei record della classe di equivalenza (s) per il logaritmo della stessa funzione.\\
+Questo sistema rappresenta una miglioria ma presenta comunque delle problematiche poiché è suscettibile agli \textbf{attacchi di inferenza probabilistica}.
+Se l'attaccante conosce alcuni attributi del soggetto potrebbe risalire allo stesso attraverso tali attributi.
+Inoltre la l-diversity non considera la distribuzione generale dei valori sensibili quindi in un caso d'esempio in cui gli attributi sensibili siano HIV+ (1\%) e HIV- (99\%), la l-diversity non fa differenza tra le due classi di equivalenza generando una possibile violazione della privacy.
+
+\subsection{T-Closeness}
+Il sistema t-closeness permette di risolvere i problemi di inferenza visti in sezione \ref{subsec:tdiversity} poiché le distribuzioni degli attributi sensibili di ogni gruppo di quasi-identificatori deve essere simile alla loro distribuzione nel database originale.
+
+Ci si accorge così che a prescindere dal sistema di anonimizzazione utilizzato, è possibile risalire ad un soggetto attraverso gli attributi quasi-identificatori.\\
+Ribaltando quindi l'idea di database potremmo pensare ad implementare un sistema di query che fornisce direttamente il risultato richiesto senza fornire i dati in sé ma è dimostrabile che anche questo sistema ha gli stessi problemi poiché con la giusta sequenza di query è comunque possibile rilevare dati sensibili.
+
+\subsection{Differential Privacy}
+Ogni rischio relativo alle informazioni di una persona non dovrebbe cambiare significativamente l'output delle informazioni della persona stessa o, quanto meno, non nell'analisi.\\
+Se nel mondo reale il risultato dell'analisi è ottenuto con tutti i dati e nel mondo ideale lo è senza i dati di una persona, la differenza tra i due risultati è al massimo $\epsilon$.
+Lo scopo della differential privacy è quello di rendere $\epsilon = 0$ cioè che i risultati non abbiano differenze.\\
+Per fare ciò non espongo i dati dell'individuo ma le probabilità ottenute con essi (es: A ha un cancro $->$ A probabilmente ha un cancro).
+Un algoritmo A si dice \textbf{differential private} se soddisfa la seguente condizione: date le probabilità P calcolate da A su entrambi i dataset D e D', il valore assoluto del rapporto tra le due probabilità è $\leq \varepsilon$.
+\begin{center}
+$sup_t | \log \cfrac{p(A(D) = t)}{p(A(D') = t)} | \leq \varepsilon$
+\end{center}
+L'invarianza dopo l'elaborazione è la proprietà per la quale qualsiasi algoritmo eseguito dopo l'anonimizzazione non genera rischi per la privacy.
+Se si utilizzano diversi algoritmi di analisi sui dati con $\epsilon$ diverse, il rischio sarà al più la sommatoria delle $\epsilon$.
+Con la privacy differenziali è possibile calcolare statistiche descrittive, compiti di machine learning supervisionati e non supervisionati (classificazioni, regressioni, clustering, apprendimento su distribuzioni ecc...) e generazione di dati sintetici.\\
+L'\textbf{US Census Bureau 2020} utilizza l'analisi differenziale per esporre i propri dati e anche Google utilizza questa tecnica.
+Apple la utilizza ma senza rivelare le modalità ed il codice utilizzato, inoltre non sembrerebbe un algoritmo molto sicuro.\\
+Google \textbf{TensorFlow} e Facebook \textbf{Opacus} possiedono delle implementazioni all'algoritmo differenziale.

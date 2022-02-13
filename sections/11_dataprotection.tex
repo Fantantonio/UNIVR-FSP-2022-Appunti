@@ -1,2 +1,73 @@
 \section{Protezione dei Dati}
 \label{sec:dataprotection}
+Nel 1995 in Europa ogni stato decideva regole sulla privacy per conto proprio creando così difficile implementare regole trasversali per siti web visibili ovunque.
+L'European data protection board ha imposto ad ogni nazione di creare un proprio organo di sorveglianza sulla tutela della privacy e nel 2018 la \acrshort{GDPR} ha permesso di uniformare i diritti dell'utente, il concetto di dato personale, le regole sul tracciamento dell'utilizzo dei dati e multe salate per i trasgressori.
+Dall'articolo 82 della \acrshort{GDPR} \virgolette{Ogni controllore coinvolto nel processo deve essere responsabile per i danni causati dalla loro elaborazione nel caso in cui infranga questo Regolamento. L'elaboratore deve essere responsabile per i danni causati dall'elaborazione solo quando non ha ottemperato agli obblighi che questo Regolamento prevede relativamente all'elaborazione o nel caso in cui abbia agito contrariamente alle istruzioni della legge o del controllore}.
+E ancora \virgolette{Quando più di un controllore o elaboratore o entrambi i controllori ed elaboratori sono coinvolti nella stessa elaborazione e nell'archiviazione, visti i paragrafi 2 e 3, sono responsabili per ogni danno causato dall'elaborazione, ogni controllore o elaboratore deve essere ritenuto responsabile per l'intero danno in modo da assicurare l'effettivo compenso al soggetto dei dati}.
+Per \textbf{Dati Personali} con la \acrshort{GDPR} si intendono anche dati genetici, biometrici e di posizione geografica.
+I dati però possono essere considerati personali in alcuni contesti e non personali in altri.\\
+Nel caso in cui un sito web registri l'indirizzo IP degli utenti per identificare e reagire ad attacchi l'indirizzo IP è considerato un dato personale.\\
+Mario Rossi è un dato personale? Non sempre perché è un nome molto comune.\\
+L'uomo alto di mezza età che possiede un Labrador, guida una Fiat Punto e vive al numero 15 è considerabile un dato personale perché permette di distinguerlo dalla massa.\\
+Dunque anche l'indirizzo può essere considerato in alcuni casi un dato personale perché ad esempio nelle Pagine Gialle identifica una persona.\\
+In sostanza gli stessi dati possono essere considerati dati personali in un caso e dati non personali in un altro.
+Quando un'informazione è legata ad un individuo allora si è in presenza di un dato personale.
+
+\subsection{Doveri nel trattamento dei dati}
+Sia il data controller che il data processor hanno dei doveri per quanto riguarda la raccolta, l'elaborazione e l'archiviazione dei dati:
+\begin{enumerate}[noitemsep]
+    \item Devono avere una base legale per elaborare i dati
+    \item Devono elaborare i dati per motivi dichiarati e specifici
+    \item Devono collezionare solo i dati necessari per lo scopo
+    \item Devono tenere i dati solo per il tempo necessario
+    \item Devono tenere solo dati accurati
+    \item Devono tenere i dati al sicuro
+    \item Devono permettere ai data subject di esercitare i propri diritti
+    \item Devono mantenere un registro delle attività di elaborazione
+\end{enumerate}
+Sei possibili basi legali per elaborare i dati sono:
+\begin{itemize}[noitemsep]
+    \item Consenso: i data subject hanno dato il loro permesso all'elaborazione dei dati personali per una o più motivazioni
+    \item Contratto: l'elaborazione è necessaria per la prestazione di un contratto in cui il data subject è parte o per rispondere alla richiesta del data subject prima che stipuli il contratto
+    \item Obblighi legali: l'elaborazione è necessaria per proteggere l'interesse del data subject o di altre persone fisiche
+    \item Interesse vitale: l'elaborazione è necessaria per proteggere l'interesse vitale del data subject o di altre persone fisiche
+    \item Interesse pubblico: l'elaborazione è necessaria per la prestazione del servizio di pubblico interesse o nell'esercizio di autorità ufficiali investite dal data controller
+    \item Interesse legittimato: l'elaborazione è necessaria per lo scopo di interesse legittimato perseguito dal data controller o da parti terze ad eccezion fatta per quegli interessi che sono sovrascritti da interessi o diritti fondamentali di libertà del data subject che richiedono la protezione per dati personali in particolare quando il data subject è un bambino
+\end{itemize}
+Per \textbf{consenso} del data subject si intende liberamente concesso (non dovrebbe esserci una precondizione per registrarsi ad un servizio), specifico (deve essere richiesto il consenso per ogni motivo di elaborazione e attività condotta sui dati), informato (spiegato in modo chiaro e conciso) e non indicato ambiguamente (silenzio assenso, checkboxs pre-abilitati o inattività) attraverso una chiara un'azione affermativa.\\
+Per \textbf{Trasparenza} si intende che il data controller deve informare gli utenti su come vengono elaborati i loro dati in modo semplice da capire.
+Quando i dati sono collezionati il data controller deve fornire una notifica di privacy con i dettagli del caso.\\
+Ci sono anche delle limitazione delle finalità.
+I dati personali devono essere collezionati per specifiche, esplicite e legittime finalità e nessun'altra elaborazione può essere fatta per filanità incompatibili con quelle dichiarate.
+Finalità compatibili sono archiviazione per interesse pubblico, scientifico, statistico o di ricerca storica.\\
+La minimizzazione dei dati è il concetto che prevede che i dati siano adeguati, rilevanti e limitati a ciò che è necessario per fornire il servizio ed il data controller deve accertarsi che lo siano.\\
+I dati personali devono essere accurati e tenuti aggiornati se necessario.
+Vanno prese tutte le misure del caso per eliminare i dati non accurati o rettificarli senza ritardi.\\
+I dati personali vanno archiviati in modo da permettere l'identificazione del data subject non oltre il necessario per la fornitura del servizio.
+Possono tuttavia essere archiviati più a lungo solo per motivi di interesse pubblico, scientifico, statistico o di ricerca storica.\\
+I dati personali devono essere elaborati attraverso modalità che assicurano adeguata sicurezza compresa la protezione da elaborazioni non autorizzate o illegali e la perdita accidentale, il danneggiamento o la distruzione utilizzando appropriate misure tecniche e organizzative.\\
+Il data controller deve essere in grado di dimostrare di attenersi agli obblighi della \acrshort{GDPR} e per fare ciò dotarsi di sistemi che permettono l'accountability.
+Inoltre deve rispettare tutto ciò detto sopra per esempio adottando un approccio di tipo data protection by design and default e incaricando un data protection officer.\\
+
+\subsection{Diritti del Data Subject}
+Il data subject ha un certo numero di diritti:
+\begin{enumerate}[noitemsep]
+    \item Diritto di essere informato
+    \item Diritto di accedere ai propri dati
+    \item Diritto di rettificare i propri dati
+    \item Diritto di far eliminare i propri dati se elaborati in modo non legalmente conforme
+    \item Diritto di obiettare a certe elaborazioni se non basate sul consenso
+    \item Diritto di non essere soggetto a decisioni completamente automatizzate
+    \item Diritto di richiedere i propri dati in formato consultabile
+\end{enumerate}
+La \acrshort{GDPR} richiede anche sistemi e metodologie per denunciare eventuali violazioni ai dati personali; tutte le organizzazioni devono denunciare determinati personal data breaches all'autorità si supervisione relativa.
+Questo deve essere fatto nelle 72 ore successive all'essere venuti a conoscenza del breach per quando possibile.\\
+Se il breach è ad alto rischio devono anche essere informate gli individui a rischio senza alcun ritardo.\\
+Deve esserci in ogni caso un sistema robusto per scovare eventuali breach, investigarli e riportarli attraverso procedure dedicate in modo da rendere più facile il processo decisionale.\\
+Deve anche essere mantenuto un registro di tutti i personal data breach a prescindere che richiedano la notifica agli enti preposti.\\
+
+La \acrshort{GDPR} prevede due livelli di sanzioni:
+\begin{enumerate}[noitemsep]
+    \item Infrazioni non gravi: possono risultare in una sanzione massima di \euro 10 milioni o del 2\% dei guadagni mondiali annuali (es: non aver riportato il data breach alla data protection authority, non aver incaricato un data protection officer, aver elaborato i dati illegalmente)
+    \item Infrazioni gravi: possono risultare in una sanzione massima di \euro 20 milioni o del 4\% dei guadagni mondiali annuali (es: violazione dei principi della protezione dei dati, violazione dei diritti del data subject, trasferimento di dati personali ad organizzazioni internazionali o a paesi terzi)
+\end{enumerate}
